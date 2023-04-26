@@ -10,7 +10,7 @@ do
     if [ $x -eq 4 ]
     then
     	echo "bad luck"
-    elif [ $x -eq 9 ]
+    elif [ $x -eq 8 ]
     then
     	echo "good luck"
     else
