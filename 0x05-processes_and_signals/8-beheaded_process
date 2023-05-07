@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Annihilates the 7-highlander process.
-
-pid=$(pgrep -f "7-highlander")
-kill -9 "$pid"
