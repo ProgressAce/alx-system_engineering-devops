@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Displays numbers from 1 to 100, but displays differently for numbers
+# which are multiples of:
+# 5 and 3, 'FizzBuzz'
+# 3, 'Fizz'
+# 5, 'Buzz'
+
+for num in {1..100}
+do
+	if  (( num % 3 == 0 && num % 5 == 0 ))
+	then
+		echo "FizzBuz"
+
+	elif [ $((num % 3)) -eq 0 ]
+	then
+		echo "Fizz"
+
+	elif  [ $((num % 5)) -eq 0 ]
+	then
+		echo "Buzz"
+
+	else
+		echo "$num"
+	fi
+done
