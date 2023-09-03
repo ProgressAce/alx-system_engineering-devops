@@ -11,6 +11,6 @@ file_line {'password authenticity':
 file_line {'identitiy key':
   ensure  => present,
   path    => '/etc/ssh/ssh_config',
-  line    => '    IdentityFile ~/.ssh',
+  line    => '    IdentityFile ~/.ssh/school',
   replace => true,
 }
