@@ -1,6 +1,6 @@
-file { '/tmp':
+file { 'file in /tmp':
+  ensure  => 'present',
   path    => '/tmp/school',
-  ensure  => present,
   mode    => '0744',
   owner   => 'www-data',
   group   => 'www-data',
