@@ -1,5 +1,0 @@
-# Configuration used in my local ssh client config file so that
-# a password is not needed to access a server.
-Host 54.209.236.178
-    IdentityFile ~/.ssh/school
-    PasswordAuthentication no
