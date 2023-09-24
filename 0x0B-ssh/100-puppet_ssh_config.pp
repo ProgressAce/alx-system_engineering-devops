@@ -1,4 +1,4 @@
-$config_content = 'Host
+$config_content = 'Host *
     IdentityFile ~/.ssh/school
     PasswordAuthentication no'
 
