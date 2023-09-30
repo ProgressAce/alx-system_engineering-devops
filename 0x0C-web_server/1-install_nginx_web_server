@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# Configures a new ubuntu machine to:
-# install 'nginx' server which listens to port 80 by default
-# When sending a GET request (requesting a page) using curl to nginx at its root '/'
-# it returns a page that contains the string 'Hello World!'.
+# Installs nginx web server and configures it
 
 sudo apt-get update -y
 sudo apt-get install nginx -y
 
-echo "Hello World!" > /var/www/html/index.html
-sudo service nginx start
+echo "Hello World!" > /var/www/html/page.html
+
+sudo nginx -s restart
