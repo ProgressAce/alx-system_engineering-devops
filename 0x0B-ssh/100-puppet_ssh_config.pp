@@ -1,3 +1,4 @@
+# manifest that configures the ssh local client config file
 $config_content = 'Host *
     IdentityFile ~/.ssh/school
     PasswordAuthentication no'
