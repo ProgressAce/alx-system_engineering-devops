@@ -1,2 +1,2 @@
-# Learning about network security
-### This project uses tcpdump for network sniffing and hydra for brute force dictionary attacks to discover the password of specified test network communications
+# Network security
+### In this project I infiltrate an unencrypted smtp email communication anda local docker container using tcpdump and hydra, respectively.
