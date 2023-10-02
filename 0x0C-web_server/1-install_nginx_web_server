@@ -4,6 +4,9 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 
-echo "Hello World!" > /var/www/html/page.html
+# Give user ownership to websites files for accessible editing
+sudo chown -R "$USER":"$USER" /var/www/html
 
-sudo nginx -s restart
+echo "Hello World!" > /var/www/html/index.html
+
+sudo service nginx restart

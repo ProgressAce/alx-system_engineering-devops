@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Configures a new ubuntu machine to:
+# redirect to another page when requesting for /redirect_me
+# have a custom 404 page that contains the string "Ceci n'est pas une page"
+
+sudo apt-get update -y
+sudo apt-get install nginx -y
+
+# Give user ownership to websites files for accessible editing
+sudo chown -R "$USER":"$USER" /var/www/html
+
+echo "Hello World!" > /var/www/html/index.html
+
+# save the original file
+sudo mkdir -p ~/nginx_backups
+sudo cp -n /etc/nginx/sites-enabled/default ~/nginx_backups/nginx_sites-available_default.bak
+
+location="\tlocation /redirect_me {\n\t\trewrite ^/redirect_me https://www.liquidweb.com/kb/redirecting-urls-using-nginx/ permanent;\n\t}"
+
+# Set up permanent redirect to website on nginx redirect
+sudo sed -i "42i\ $location" /etc/nginx/sites-available/default
+
+# Set up a 404 message
+sudo echo "Ceci n'est pas une page" >> /var/www/html/error_page_404.html
+sudo sed -i "45i\ \n\terror_page 404 /error_page_404.html" /etc/nginx/sites-available/default
+
+sudo service nginx restart
