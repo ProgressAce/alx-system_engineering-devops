@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# Installs nginx web server and configures it
+# Configures a new ubuntu machine to install nginx and configure it to:
+#   - display 'Hello World!' when requesting localhost at it root /.
+#   - redirect to another page when requesting for /redirect_me
+#   - have a custom 404 page that contains the string "Ceci n'est pas une page"
 
 sudo apt-get update -y
 sudo apt-get install nginx -y
@@ -7,6 +10,14 @@ sudo apt-get install nginx -y
 # Give user ownership to websites files for accessible editing
 sudo chown -R "$USER":"$USER" /var/www/html
 
+# Set up page to serve as the root message
 echo "Hello World!" > /var/www/html/index.html
+sudo chmod 0777 /var/www/html/index.html
+
+
+# save the original file
+sudo mkdir -p ~/nginx_backups
+sudo cp -n /etc/nginx/sites-enabled/default ~/nginx_backups/nginx_sites-available_default.bak
+
 
 sudo service nginx restart
