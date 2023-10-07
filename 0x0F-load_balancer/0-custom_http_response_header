@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Configure nginx to have its http response contain a custom header:
+#   - name "X-Served-By"
+#   - value <the hostname of the web server serving the content>
+#
+# This is done so that the administrator knows which server is serving the current content
+
+# create backup of nginx sites-available file
+mkdir -p ~/nginx_backup
+cp -n /etc/nginx/sites-available/default ~/nginx_backup/sites-available-default
+
+DIRECTIVE="location / {\n\t\tadd_header X-Served-By $HOSTNAME;"
+sudo sed -i "0,/location \/ {/{s%location / {%$DIRECTIVE%}" /etc/nginx/sites-available/default # for first occurence
+
+sudo service nginx restart
