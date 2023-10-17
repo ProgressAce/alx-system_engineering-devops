@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Installs haproxy and configures it to:
+#   - send traffic to web-01 and web-02 servers
+#   - distribute requests using a roundrobin algorithm
+#   - make sure that haproxy can be managed via an init script
+#
+# For setting up a new ubuntu machine for the above configurations.
+
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+
+# Give user ownership to websites files for accessible editing
+sudo chown -R "$USER":"$USER" /etc/default/haproxy
+
+# init script managing
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# backing up the original default haproxy.cfg
+sudo cp -n /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+
+
+SECTIONS="\n \
+frontend my_traffic\n \
+\tbind *:80\n \
+\tdefault_backend my_servers\n \
+\n \
+backend my_servers\n \
+\tbalance roundrobin\n \
+\tserver web-01 54.144.146.11:80 check\n \
+\tserver web-02 54.90.48.124:80 check"
+
+sudo sed -i "34i\ $SECTIONS" /etc/haproxy/haproxy.cfg
+
+
+sudo service haproxy restart
