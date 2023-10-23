@@ -8,9 +8,9 @@ The chosen employee will be determined by a passed integer parameter.
 The csv file content format will be:
     'USER_ID','USERNAME','TASK_COMPLETED_STATUS','TASK_TITLE'"""
 
-from sys import argv
-import requests
 import csv
+import requests
+from sys import argv
 
 
 if __name__ == '__main__':

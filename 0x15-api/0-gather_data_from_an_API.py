@@ -5,8 +5,8 @@ Uses the JSOPlaceholder REST API to retrieve fake data to be act as
 the employees with their TODO lists.
 The chosen employee will be determined by a passed integer parameter."""
 
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == '__main__':
