@@ -5,6 +5,7 @@ Uses the JSOPlaceholder REST API to retrieve fake data to be act as
 the employees with their TODO lists.
 The chosen employee will be determined by a passed integer parameter.
 
+Records all tasks that are owned by this employee.
 The json file content format will be:
     { "USER_ID": [{"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS,
     "username": "USERNAME"}, {"task": "TASK_TITLE",
@@ -35,15 +36,18 @@ if __name__ == '__main__':
     # Writing data to a JSON file
 
     with open('{}.json'.format(user_id), 'w') as json_file:
-        json_dict = {}
+        todo_dict = {}  # todo dictionary for specific user/employee.
+        list_placeholder = []
 
         for task in todo:  # to capture all tasks
-            details = {
+            task_dict = {
                     'task': task['title'],
                     'completed': task['completed'],
                     'username': employee['username']
                     }
-            json_dict[f'{employee['id']}'] = [details]
+            list_placeholder.append(task_dict)
 
-        json_str = json.dumps(json_dict)
-        json_file.write()
+        todo_dict[employee["id"]] = list_placeholder
+
+        json_str = json.dumps(todo_dict)
+        json_file.write(json_str)
