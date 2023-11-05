@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Improves task 0 script by making it shorter
+sudo ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
