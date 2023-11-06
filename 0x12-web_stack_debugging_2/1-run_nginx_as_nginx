@@ -9,4 +9,4 @@ sudo cp -n /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
 sudo sed -i "1i\ \nuser nginx;" /etc/nginx/nginx.conf
 sudo sed -i "s%80 default_server%8080 default_server%" /etc/nginx/sites-available/default 
 
-sudo service nginx restart
+sudo -u nginx service nginx restart
