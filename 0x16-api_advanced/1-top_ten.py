@@ -5,12 +5,15 @@ import requests
 
 
 def top_ten(subreddit):
-    """Queries the Reddit API and prints the titles of the first 10 hot posts
-       listed for a given subreddit.
+    """Queries the Reddit API.
 
-       Returns:
-           The total number of subscribers of a given subreddit,
-           or 0 if the subreddit is invalid."""
+    Prints the titles of the first 10 hot posts
+    listed for a given subreddit.
+
+    Returns:
+        The total number of subscribers of a given subreddit,
+        or 0 if the subreddit is invalid.
+    """
 
     if type(subreddit) is not str:
         print(None)

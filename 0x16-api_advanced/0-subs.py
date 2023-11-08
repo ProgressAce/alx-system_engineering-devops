@@ -6,12 +6,12 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """Queries Reddit API to return total number of subscribers
-       of the given subreddit.
+    """Queries the Reddit API.
 
        Returns:
            The total number of subscribers of a given subreddit,
-           or 0 if the subreddit is invalid."""
+           or 0 if the subreddit is invalid.
+    """
 
     if type(subreddit) is not str:
         return 0
