@@ -2,8 +2,6 @@
 # Defines a function to query Reddit API to return total number of
 # subscribers ofthe given subreddit.
 
-import requests
-
 
 def number_of_subscribers(subreddit):
     """Queries the Reddit API.
@@ -13,7 +11,9 @@ def number_of_subscribers(subreddit):
            or 0 if the subreddit is invalid.
     """
 
-    if type(subreddit) is not str:
+    import requests
+
+    if subreddit is None or type(subreddit) is not str:
         return 0
 
     client_id = '-NIUk5MRHKUDkmiAqS36cw'

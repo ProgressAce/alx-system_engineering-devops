@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 # Defines a function to query Reddit API to info of a subreddit.
 
-import requests
-
 
 def top_ten(subreddit):
     """Queries the Reddit API.
@@ -15,7 +13,9 @@ def top_ten(subreddit):
         or 0 if the subreddit is invalid.
     """
 
-    if type(subreddit) is not str:
+    import requests
+
+    if subreddit is None or type(subreddit) is not str:
         print(None)
 
     client_id = '-NIUk5MRHKUDkmiAqS36cw'
