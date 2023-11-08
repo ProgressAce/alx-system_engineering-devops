@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Defines a function to query Reddit API to info of a subreddit.
+"""Defines a function to query Reddit API to info of a subreddit."""
 
 
 def top_ten(subreddit):
